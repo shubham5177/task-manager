@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task | Task Manager</title>
+    <link rel="stylesheet" href="add-task.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Add New Task</h2>
+        <form onsubmit="saveTask(event)">
+            <input type="text" id="title" placeholder="Task Title" required />
+            <textarea id="description" placeholder="Task Description" required></textarea>
+            <input type="date" id="dueDate" required />
+            <select id="priority">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+            <button type="submit">Add Task</button>
+            <button type="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+        </form>
+    </div>
+
+    <script src="add-task.js"></script>
+</body>
+
+</html>

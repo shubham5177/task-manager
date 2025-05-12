@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Detail | Task Manager</title>
+    <link rel="stylesheet" href="task-detail.css" />
+</head>
+
+<body>
+    <div class="task-detail-container">
+        <h2>Edit Task</h2>
+        <form onsubmit="updateTask(event)">
+            <input type="text" id="edit-title" required />
+            <textarea id="edit-description" required></textarea>
+            <input type="date" id="edit-dueDate" required />
+            <select id="edit-priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+            <select id="edit-status">
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+            <button type="submit">Save Changes</button>
+            <button type="button" onclick="window.location.href='task-list.html'">Cancel</button>
+        </form>
+    </div>
+
+    <script src="task-detail.js"></script>
+</body>
+
+</html>
