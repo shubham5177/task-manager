@@ -1,38 +1,131 @@
+:root {
+    --color: #ffffff;
+    --primary-color: #0f3460;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e9ecef;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: var(--color);
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #45caff, #6effa4, #f9ff6e, #ff6ec4);
+    background-size: 1200% 1200%;
+    animation: rainbowBackground 20s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes rainbowBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .dashboard-container {
-    background: white;
-    padding: 30px;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1;
+    text-align: center;
 }
 
-.nav-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+h2 {
+    margin-bottom: 2rem;
 }
 
-button {
-    padding: 10px;
-    background: #007bff;
+.nav-buttons button {
+    background-color: var(--primary-color);
     border: none;
-    color: white;
+    color: var(--color);
+    padding: 12px 20px;
+    margin: 0.5rem 0;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-button:hover {
-    background: #0056b3;
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+
+/* Rotating Box */
+
+.rotating-box {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    perspective: 1000px;
+    z-index: 0;
+}
+
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    animation: rotateBox 10s linear infinite;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+    transform: translateZ(50px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+@keyframes rotateBox {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
 }
