@@ -9,11 +9,23 @@
 </head>
 
 <body>
+
+    <div class="rotating-box">
+        <div class="box">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+        </div>
+    </div>
+
     <div class="task-detail-container">
         <h2>Edit Task</h2>
         <form onsubmit="updateTask(event)">
-            <input type="text" id="edit-title" required />
-            <textarea id="edit-description" required></textarea>
+            <input type="text" id="edit-title" placeholder="Task Title" required />
+            <textarea id="edit-description" placeholder="Task Description" required></textarea>
             <input type="date" id="edit-dueDate" required />
             <select id="edit-priority">
         <option value="Low">Low</option>
